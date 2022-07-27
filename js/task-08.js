@@ -10,16 +10,10 @@ function onSubmit(event) {
     elements: { email, password },
   } = event.currentTarget;
 
-  if (email.value === "" || password.value === "") {
-    alert();
+  if (!email.value || !password.value) {
+    alert("Заполните, пожалуйста, все поля!");
+  } else {
+    console.log(`Email: ${email.value}, Password: ${password.value}`);
+    event.currentTarget.reset();
   }
-  console.log(`Email: ${email.value}, Password: ${password.value}`);
-  event.currentTarget.reset();
-}
-
-function alert() {
-  const alertText = document.createElement("p");
-  alertText.textContent = "Заполните, пожалуйста, все поля!";
-  alertText.style.color = "red";
-  formRef.append(alertText);
 }
